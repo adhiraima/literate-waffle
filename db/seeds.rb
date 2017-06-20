@@ -5,8 +5,6 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-i = 0
-until i < 50000
+1.upto(50000) do
   Driver.create(latitude: 0.0, longitude: 0.0)
-  i++
 end
