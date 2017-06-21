@@ -15,6 +15,7 @@ ActiveRecord::Schema.define(version: 20170618075224) do
   create_table "drivers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.float "latitude", limit: 24
     t.float "longitude", limit: 24
+    t.float "distance", limit: 24
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

@@ -1,5 +1,5 @@
 class DriversController < ApplicationController
-
+  before_action :driver, only: [:update_position]
   def list
     render json: Driver.drivers_in_range(latitude, longitude, radius, limit)
   end
