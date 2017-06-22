@@ -1,4 +1,5 @@
 class DriversController < ApplicationController
+  skip_before_action :verify_authenticity_token
   before_action :driver, only: [:update_position]
   def list
     render json: Driver.drivers_in_range(latitude, longitude, radius, limit)
