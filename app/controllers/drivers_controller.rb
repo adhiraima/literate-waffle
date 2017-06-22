@@ -38,6 +38,6 @@ class DriversController < ApplicationController
   end
 
   def driver
-    @driver ||= Driver.find_by(id, params[:id])
+    @driver ||= Driver.find(params[:id])
   end
 end

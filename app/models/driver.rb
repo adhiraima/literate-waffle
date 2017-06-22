@@ -10,7 +10,7 @@
 
   def self.drivers_in_range(lat, long, range, limit)
     values = { latitude: lat.to_f, longitude: long.to_f, range: range, pi: PI, radius_e: RADIUS_E }
-    drivers = Driver.select('id, latitude, longitude').where(":radius_e * 2 * atan2(sqrt(pow((sin(((latitude - :latitude) * :pi / 180)/2)), 2) + (cos(latitude * :pi / 180) * cos(:latitude * :pi / 180) * pow(sin((((longitude) - (:longitude)) * :pi / 180)/2), 2))), sqrt(1 - (pow((sin(((latitude - :latitude) * :pi / 180)/2)), 2) + (cos(latitude * :pi / 180) * cos(:latitude * :pi / 180) * pow(sin((((longitude) - (:longitude)) * :pi / 180)/2), 2))))) <= :range", values)
+    drivers = Driver.select('id, latitude, longitude').where(":radius_e * 2 * atan2(sqrt(pow((sin(((latitude - :latitude) * :pi / 180)/2)), 2) + (cos(latitude * :pi / 180) * cos(:latitude * :pi / 180) * pow(sin((((longitude) - (:longitude)) * :pi / 180)/2), 2))), sqrt(1 - (pow((sin(((latitude - :latitude) * :pi / 180)/2)), 2) + (cos(latitude * :pi / 180) * cos(:latitude * :pi / 180) * pow(sin((((longitude) - (:longitude)) * :pi / 180)/2), 2))))) <= :range", values).limit(limit)
     drivers.each do |driver|
       driver.distance = get_distance(driver.latitude, driver.longitude, lat, long)
     end
