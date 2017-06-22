@@ -13,4 +13,4 @@ I have setup ruby locally using RVM and then installed gems to set up the requir
 rake db:create db:migrate db:seed will set up the database and seed the `drivers`
 table with the 50,000 drivers.
 
-The test scripts are update_drivers.py and get_drivers.py. Running the former will loop to update the driver coordinates, and the former makes a fetch for the drivers. IT also gives the execution and average time.
+The test scripts are update_drivers.py and get_drivers.py. Running the former will loop to update the driver coordinates, and the latter makes a fetch for the drivers. IT also gives the execution and average time.
