@@ -24,10 +24,8 @@ for i in range(1, 50000, 1):
     start = time.time()
     r = requests.put(url, json=payload)
     total = (time.time() - start) * 1000
-    if i == 0:
+    if i == 1:
         averageTime = total
     else:
         averageTime = (averageTime + total)/2
     print 'Request Executed in: ' + str(total) + ' With status: ' + str(r.status_code) + ' With average running time: ' + str(averageTime)
-
-

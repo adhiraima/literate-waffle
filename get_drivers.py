@@ -1,8 +1,9 @@
-#!/usr/bin/env python
+##!/usr/bin/env python
 
 import requests
 import time
 import random
+import json
 
 # main api url to fetch driver information on the basis of coordinates provided
 url = 'http://localhost:3000/drivers'
@@ -17,6 +18,5 @@ for i in range(1, 100, 1):
     r = requests.get(url, params)
     total = (time.time() - start) * 1000
     print 'Time taken: ' + str(total) + ' With status: ' + str(r.status_code)
-    print r.content
-
-
+    parsed = json.loads(r.content)
+    print json.dumps(parsed, indent=2, sort_keys=True)
